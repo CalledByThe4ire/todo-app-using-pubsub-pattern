@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "label": "Take a shower",
+      "isImportant": false,
+      "isDone": false
+    },
+    { "id": 2, "label": "Drink coffee", "isImportant": true, "isDone": false },
+    {
+      "id": 3,
+      "label": "Prepare breakfast",
+      "isImportant": false,
+      "isDone": false
+    }
+  ]
+}

@@ -28,6 +28,7 @@
     }
   ],
   "scripts": {
+    "start": "concurrently \"npm run dev\" \"npm run json-server\"",
     "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
     "bundle": "npm install && npm run watch",
     "dev": "webpack serve --config configuration/webpack.dev.config.js --mode=development",
@@ -35,7 +36,8 @@
     "lint:sass": "stylelint \"src/scss/\" --syntax scss",
     "production": "webpack --config configuration/webpack.prod.config.js --mode=production",
     "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json",
-    "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch"
+    "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch",
+    "json-server": "json-server --watch db.json --port 5000"
   },
   "browserslist": [
     "last 2 versions",
@@ -53,6 +55,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.3.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.2.0",
@@ -67,6 +70,7 @@
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^8.0.0",
+    "json-server": "^0.16.3",
     "mini-css-extract-plugin": "^1.3.4",
     "postcss": "^8.2.4",
     "postcss-loader": "^4.1.0",
@@ -89,5 +93,6 @@
   "engines": {
     "node": "^10 || ^12 || >=14"
   },
-  "target": "web"
+  "target": "web",
+  "proxy": "http://localhost:5000"
 }
