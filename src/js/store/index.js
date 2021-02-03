@@ -1,7 +1,7 @@
-import actions from './actions.js';
-import mutations from './mutations.js';
-import state from './state.js';
-import Store from './store.js';
+import actions from './actions';
+import mutations from './mutations';
+import state from './state';
+import Store from './store';
 
 export default new Store({
   actions,

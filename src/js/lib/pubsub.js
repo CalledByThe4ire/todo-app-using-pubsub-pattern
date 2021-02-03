@@ -1,10 +1,12 @@
+/* eslint-disable no-prototype-builtins */
+
 export default class PubSub {
   constructor() {
     this.events = {};
   }
 
   subscribe(event, callback) {
-    let self = this;
+    const self = this;
 
     if (!self.events.hasOwnProperty(event)) {
       self.events[event] = [];
@@ -14,7 +16,7 @@ export default class PubSub {
   }
 
   publish(event, data = {}) {
-    let self = this;
+    const self = this;
 
     if (!self.events.hasOwnProperty(event)) {
       return [];
