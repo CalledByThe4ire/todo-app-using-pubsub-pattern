@@ -1,5 +1,3 @@
-/* eslint-disable no-prototype-builtins */
-
 export default class PubSub {
   constructor() {
     this.events = {};

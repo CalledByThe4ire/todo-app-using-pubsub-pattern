@@ -5,4 +5,16 @@
 @import 'base/fonts';
 @import 'base/common';
 
+.is-done {
+  text-decoration: line-through;
+}
+
+.is-important {
+  font-weight: bold;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
 /* Components */

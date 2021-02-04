@@ -1,3 +1,5 @@
 import '../scss/app.scss';
+import store from './store/index';
+import init from './init';
 
-/* Your JS Code goes here */
+init(store);

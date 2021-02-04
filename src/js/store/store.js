@@ -1,5 +1,3 @@
-/* eslint-disable no-prototype-builtins, no-param-reassign */
-
 import PubSub from '../lib/pubsub';
 
 export default class Store {
