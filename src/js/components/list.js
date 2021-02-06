@@ -43,7 +43,10 @@ export default class List extends Component {
       store.state.search,
     );
 
-    if (visibleItems.length === 0) {
+    if (store.state.isLoading) {
+      self.element.innerHTML = `
+        <div class="spinner-border" role="status"></div>`;
+    } else if (visibleItems.length === 0) {
       self.element.innerHTML = `
         <div class="${classNames(
           'todo-list-app__alert',
@@ -94,11 +97,27 @@ export default class List extends Component {
                     ${item.label}
                     </p>
                     <div class="btn-group">
-                        <button class="btn btn-outline-secondary" data-action-type="remove">
-                            <i class="fa fa-trash" style="pointer-events: none;"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary" data-action="toggle">
-                            <i class="fa fa-exclamation-circle" style="pointer-events: none;"></i>
+                    <button class="${classNames(
+                      'btn',
+                      'btn-outline-secondary',
+                      { disabled: store.state.isLoading },
+                    )}" data-action-type="remove"
+                        style="pointer: ${store.state.isLoading ? 'not-allowed' : 'cursor'};">
+                        <i class="${classNames(
+                          'fa',
+                          'fa-trash',
+                          { 'd-none': store.state.isLoading },
+                        )}" style="pointer-events: none;"></i>
+                    </button>
+                        <button class="${classNames(
+                          'btn',
+                          'btn-outline-secondary',
+                        )}" data-action-type="toggle"
+                            style="pointer: ${store.state.isLoading ? 'not-allowed' : 'cursor'};">
+                            <i class="${classNames(
+                              'fa',
+                              'fa-exclamation-circle',
+                            )}" style="pointer-events: none;"></i>
                         </button>
                     </div>
                 </li>
@@ -124,17 +143,15 @@ export default class List extends Component {
 
         switch (tagName.toLowerCase()) {
           case 'li':
-            store.dispatch('makeDone', {
+            store.dispatch('updateItem', {
               id,
+              propName: 'isDone',
             });
             break;
           case 'button':
-            store.dispatch(
-              `${actionType === 'remove' ? 'removeItem' : 'makeImportant'}`,
-              {
-                id,
-              },
-            );
+            actionType === 'remove'
+              ? store.dispatch('removeItem', { id })
+              : store.dispatch('updateItem', { id, propName: 'isImportant' });
             break;
           default:
             break;

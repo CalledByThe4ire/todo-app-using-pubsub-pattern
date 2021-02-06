@@ -1,17 +1,22 @@
 {
   "items": [
     {
-      "id": 1,
+      "id": "292c29a5-21d5-4275-a5a4-0925dba0125e",
       "label": "Take a shower",
-      "isImportant": false,
-      "isDone": false
+      "important": false,
+      "done": false
     },
-    { "id": 2, "label": "Drink coffee", "isImportant": true, "isDone": false },
     {
-      "id": 3,
+      "id": "1335e216-cba1-4fe2-93ba-5b7ef14fb50f",
+      "label": "Drink coffee",
+      "important": false,
+      "done": false
+    },
+    {
+      "id": "46d3161d-4774-4b58-8b30-6bc0b4815cfa",
       "label": "Prepare breakfast",
-      "isImportant": false,
-      "isDone": false
+      "important": false,
+      "done": false
     }
   ]
 }

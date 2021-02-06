@@ -23,8 +23,16 @@
             <h1 class="header-app__title p-0 m-0">Todo List</h1>
             <p class="header-app__lead lead-header-app js-lead p-0 m-0">
               <em
-                ><span class="lead-header-app__accent lead-header-app__accent--active"><strong>0</strong></span> more to do,
-                <span class="lead-header-app__accent lead-header-app__accent--done"><strong>0</strong></span> done</em
+                ><span
+                  class="lead-header-app__accent lead-header-app__accent--active"
+                  ><strong>0</strong></span
+                >
+                more to do,
+                <span
+                  class="lead-header-app__accent lead-header-app__accent--done"
+                  ><strong>0</strong></span
+                >
+                done</em
               >
             </p>
           </section>
@@ -66,25 +74,7 @@
             class="app__todo-list todo-list-app js-list d-flex justify-content-center align-items-center mb-3"
           ></div>
 
-          <form class="app__add-item add-item-app">
-            <div class="input-group">
-              <input
-                class="add-item-app__input form-control d-flex flex-grow-1 border-secondary"
-                name="new-list-item"
-                type="text"
-                placeholder="What needs to be done?"
-                autocomplete="off"
-              />
-              <div class="input-group-append">
-                <button
-                  class="add-item-app__submit btn btn-outline-secondary"
-                  type="submit"
-                >
-                  Add
-                </button>
-              </div>
-            </div>
-          </form>
+          <div class="js-add-item"></div>
         </div>
       </div>
     </div>

@@ -24,6 +24,14 @@ module.exports = merge(webpackConfiguration, {
       poll: 300,
     },
     ...environment.server,
+    proxy: {
+      '/api/**': {
+        target: 'http://localhost:5000',
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
 
   /* File watcher options */
